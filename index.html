@@ -3,154 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Systems Synthesis | Integrated Engineering Masterclass</title>
+    <title>Systems Synthesis | The Masterclass</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;400;700&display=swap" rel="stylesheet">
     <style>
-    body { 
-        font-family: 'Inter', sans-serif; 
-        background-color: #020205; 
-        color: #e5e7eb;
-        overflow-x: hidden;
-    }
-    /* The Mycelium Glow Effect */
-    .glow-text {
-        text-shadow: 0 0 20px rgba(99, 102, 241, 0.6);
-    }
-    .node-card {
-        background: rgba(15, 23, 42, 0.6);
-        backdrop-filter: blur(12px);
-        border: 1px solid rgba(99, 102, 241, 0.2);
-        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    .node-card:hover {
-        border-color: #6366f1;
-        transform: translateY(-5px) scale(1.02);
-        box-shadow: 0 0 30px rgba(99, 102, 241, 0.2);
-    }
-    /* Animated Gradient Background */
-    .bg-mesh {
-        position: fixed;
-        top: 0; left: 0; width: 100%; height: 100%;
-        z-index: -1;
-        background: 
-            radial-gradient(circle at 20% 30%, rgba(30, 27, 75, 1) 0%, transparent 50%),
-            radial-gradient(circle at 80% 70%, rgba(15, 23, 42, 1) 0%, transparent 50%);
-    }
-</style>
-</head>
-<body class="antialiased">
+        :root { --bg: #030303; --accent: #6366f1; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: var(--bg); color: white; overflow-x: hidden; }
+        
+        /* Pinterest-style Gradient Mesh Background */
+        .mesh-gradient {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;
+            background: radial-gradient(circle at 50% -20%, #1e1b4b 0%, transparent 50%),
+                        radial-gradient(circle at -10% 40%, #020617 0%, transparent 40%);
+        }
 
-    <header class="relative h-screen flex items-center justify-center text-center px-4 mycelium-gradient overflow-hidden">
-        <div class="absolute inset-0 opacity-20 pointer-events-none">
-            </div>
-        <div class="z-10 max-w-4xl">
-            <span class="text-indigo-400 font-medium tracking-widest uppercase text-sm">MSME-Recognized Initiative</span>
-            <h1 class="text-5xl md:text-7xl font-bold mt-4 mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-indigo-300">
-                Systems Synthesis: From First Principles to Market-Validated Organisms
+        /* Glassmorphism Effect */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+        }
+
+        /* Smooth Reveal Animation */
+        .reveal { animation: reveal 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards; opacity: 0; }
+        @keyframes reveal { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+        /* Glowing Button */
+        .btn-glow {
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+            transition: 0.3s all ease;
+        }
+        .btn-glow:hover { box-shadow: 0 0 40px rgba(99, 102, 241, 0.7); transform: scale(1.05); }
+    </style>
+</head>
+<body>
+    <div class="mesh-gradient"></div>
+
+    <main class="relative z-10 flex flex-col items-center justify-center min-h-screen px-6 text-center">
+        <div class="reveal">
+            <span class="px-4 py-1 mb-6 inline-block text-xs tracking-widest uppercase border border-indigo-500/30 rounded-full text-indigo-400 bg-indigo-500/10">
+                MSME Registered • Systems Engineering
+            </span>
+            <h1 class="text-6xl md:text-8xl font-extrabold tracking-tighter mb-6 bg-clip-text text-transparent bg-gradient-to-b from-white to-gray-500">
+                EMERGE TO LIGHT
             </h1>
-            <p class="text-xl text-gray-400 mb-8 max-w-2xl mx-auto">
-                A professional engineering workshop interweaving Mechanical Design, Biotech, Electronics, and ML into scalable product ecosystems.
+            <p class="max-w-xl mx-auto text-gray-400 text-lg md:text-xl font-light leading-relaxed mb-10">
+                A masterclass in integrated engineering. Synthesizing Mechanical Design, Biotech, and Machine Learning into market-ready organisms.
             </p>
             <div class="flex gap-4 justify-center">
-                <a href="#pricing" class="bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-full font-bold transition">Enlist Now</a>
-                <a href="#roadmap" class="border border-gray-600 hover:border-white px-8 py-4 rounded-full font-bold transition">View Roadmap</a>
+                <a href="#roadmap" class="btn-glow bg-white text-black px-10 py-4 rounded-full font-bold text-sm uppercase tracking-wider">Start Journey</a>
             </div>
         </div>
-    </header>
 
-    <section class="py-20 px-6 max-w-7xl mx-auto">
-        <h2 class="text-3xl font-bold text-center mb-16">The Architecture of the Organism</h2>
-        <div class="grid md:grid-cols-4 gap-8">
-            <div class="p-8 glow-border rounded-2xl">
-                <div class="text-indigo-500 mb-4 font-bold text-xl">The Body</div>
-                <h3 class="text-lg font-bold mb-2">Mechanical Design</h3>
-                <p class="text-sm text-gray-400">Structural integrity and industrial-grade CAD modeling for scalability.</p>
+        <div class="grid md:grid-cols-4 gap-6 mt-24 w-full max-w-6xl">
+            <div class="glass p-8 text-left hover:bg-white/5 transition">
+                <div class="h-2 w-12 bg-indigo-500 mb-6"></div>
+                <h3 class="text-lg font-bold">Body</h3>
+                <p class="text-sm text-gray-500 mt-2">Industrial Design & Scaling</p>
             </div>
-            <div class="p-8 glow-border rounded-2xl">
-                <div class="text-emerald-500 mb-4 font-bold text-xl">The Senses</div>
-                <h3 class="text-lg font-bold mb-2">Biotechnology</h3>
-                <p class="text-sm text-gray-400">Wetware-hardware interfacing and environmental data capture.</p>
+            <div class="glass p-8 text-left hover:bg-white/5 transition">
+                <div class="h-2 w-12 bg-emerald-500 mb-6"></div>
+                <h3 class="text-lg font-bold">Senses</h3>
+                <p class="text-sm text-gray-500 mt-2">Biosensing & Wetware</p>
             </div>
-            <div class="p-8 glow-border rounded-2xl">
-                <div class="text-amber-500 mb-4 font-bold text-xl">The Nerves</div>
-                <h3 class="text-lg font-bold mb-2">Electronics</h3>
-                <p class="text-sm text-gray-400">Micro-circuitry and real-time communication protocols.</p>
+            <div class="glass p-8 text-left hover:bg-white/5 transition">
+                <div class="h-2 w-12 bg-amber-500 mb-6"></div>
+                <h3 class="text-lg font-bold">Nerves</h3>
+                <p class="text-sm text-gray-500 mt-2">Micro-Electronics</p>
             </div>
-            <div class="p-8 glow-border rounded-2xl">
-                <div class="text-purple-500 mb-4 font-bold text-xl">The Brain</div>
-                <h3 class="text-lg font-bold mb-2">Machine Learning</h3>
-                <p class="text-sm text-gray-400">Predictive analytics and autonomous decision-making loops.</p>
+            <div class="glass p-8 text-left hover:bg-white/5 transition">
+                <div class="h-2 w-12 bg-purple-500 mb-6"></div>
+                <h3 class="text-lg font-bold">Brain</h3>
+                <p class="text-sm text-gray-500 mt-2">ML & Decision Loops</p>
             </div>
         </div>
-    </section>
+    </main>
 
-    <section class="py-12 bg-zinc-950 border-y border-zinc-900">
-        <div class="max-w-7xl mx-auto px-6 flex flex-wrap justify-center items-center gap-12 opacity-50 grayscale hover:grayscale-0 transition">
-            <span class="font-bold">SOLIDWORKS</span>
-            <span class="font-bold">AUTODOCK VINA</span>
-            <span class="font-bold">ANACONDA</span>
-            <span class="font-bold">ROS</span>
-            <span class="font-bold">ALTIUM</span>
-        </div>
-    </section>
+    <canvas id="canvas" class="fixed top-0 left-0 w-full h-full -z-5 opacity-30"></canvas>
 
-    <footer class="py-12 border-t border-zinc-900 text-center">
-        <div class="max-w-7xl mx-auto px-6">
-            <p class="text-sm text-zinc-500 mb-4">[Your LLP Name Here] | Udyam Registration: [Your ID]</p>
-            <div class="flex justify-center gap-6 opacity-40">
-                <span>Stripe Secure</span>
-                <span>Razorpay Verified</span>
-            </div>
-        </div>
-    </footer>
-<canvas id="myceliumCanvas" class="fixed top-0 left-0 w-full h-full -z-10 opacity-40"></canvas>
-
-<script>
-    const canvas = document.getElementById('myceliumCanvas');
-    const ctx = canvas.getContext('2d');
-    let particles = [];
-
-    function init() {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        for (let i = 0; i < 80; i++) {
-            particles.push({
-                x: Math.random() * canvas.width,
-                y: Math.random() * canvas.height,
-                vx: (Math.random() - 0.5) * 0.5,
-                vy: (Math.random() - 0.5) * 0.5
+    <script>
+        // Smooth mouse-following network effect
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        let pts = [];
+        function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+        window.onresize = resize; resize();
+        for(let i=0; i<60; i++) pts.push({x:Math.random()*canvas.width, y:Math.random()*canvas.height, vx:(Math.random()-0.5)*0.3, vy:(Math.random()-0.5)*0.3});
+        function draw() {
+            ctx.clearRect(0,0,canvas.width, canvas.height);
+            pts.forEach(p => {
+                p.x+=p.vx; p.y+=p.vy;
+                if(p.x<0 || p.x>canvas.width) p.vx*=-1;
+                if(p.y<0 || p.y>canvas.height) p.vy*=-1;
+                ctx.fillStyle = "rgba(99,102,241,0.5)";
+                ctx.beginPath(); ctx.arc(p.x, p.y, 1, 0, Math.PI*2); ctx.fill();
+                pts.forEach(p2 => {
+                    let d = Math.hypot(p.x-p2.x, p.y-p2.y);
+                    if(d<150) {
+                        ctx.strokeStyle = `rgba(99,102,241,${0.15 - d/1000})`;
+                        ctx.beginPath(); ctx.moveTo(p.x, p.y); ctx.lineTo(p2.x, p2.y); ctx.stroke();
+                    }
+                });
             });
+            requestAnimationFrame(draw);
         }
-    }
-
-    function animate() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        particles.forEach(p => {
-            p.x += p.vx; p.y += p.vy;
-            if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-            if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-            
-            ctx.fillStyle = '#6366f1';
-            ctx.beginPath();
-            ctx.arc(p.x, p.y, 1.5, 0, Math.PI * 2);
-            ctx.fill();
-
-            particles.forEach(p2 => {
-                let dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-                if (dist < 150) {
-                    ctx.strokeStyle = `rgba(99, 102, 241, ${1 - dist/150})`;
-                    ctx.lineWidth = 0.5;
-                    ctx.beginPath();
-                    ctx.moveTo(p.x, p.y);
-                    ctx.lineTo(p2.x, p2.y);
-                    ctx.stroke();
-                }
-            });
-        });
-        requestAnimationFrame(animate);
-    }
-    init(); animate();
-</script>
+        draw();
+    </script>
 </body>
 </html>
